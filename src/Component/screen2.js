@@ -9,10 +9,10 @@ const Details=(props)=>{
     const show=props.location.state
     console.log(show)
     return (
-      <div className="container">
+      <div className="ccontainer">
         <div className="details">
            <div className="main">   
-          <img src={show.image.original} alt="1" style={{ width: 300}} />
+          <img src={show.image.original} alt="1"/>
           <Link className="bttnn" to={{pathname: "/form", state: show.name }}
             > Book Now</Link>
             </div>  

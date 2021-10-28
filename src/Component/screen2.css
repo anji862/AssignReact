@@ -23,9 +23,8 @@
 
 
 
-.container {
-  width: 100vw;
-  height: 80vh;
+.ccontainer {
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,6 +46,9 @@
   display:flex;
   flex-direction: column;
   justify-content: space-around;
+}
+.main img{
+    width:300px
 }
 
 .info{ 
@@ -81,3 +83,80 @@
 .bttnn:hover {
   background: black;
 }
+
+ @media(max-width:1200px){
+
+    .details{
+        margin-top:0.5rem;
+        position:absolute;
+        height:95vh;
+        width:70vw;
+         grid-template-columns: 20rem auto;
+    }
+    .main img{
+        width: 280px;
+    }
+
+  }
+
+  @media(max-width:900px){
+
+    .details{
+        margin-top:0.5rem;
+        position:absolute;
+        height:95vh;
+        width:70vw;
+         grid-template-columns: 16rem auto;
+    }
+    .main img{
+        width: 250px;
+    }
+
+    .bttnn{
+        width: 180px;
+    }
+
+
+
+  }
+
+   @media(max-width:700px){
+
+    .ccontainer{
+        top: 1%;
+    }
+    .details{
+        margin-top:0.5rem;
+        position:absolute;
+        height:95vh;
+        width:70vw;
+         grid-template-columns: 14rem auto;
+    }
+    .main img{
+        width: 200px;
+    }
+    .bttnn{
+        width: 150px;
+    }
+
+  }
+
+
+   @media(max-width:500px){
+
+    .ccontainer{
+        top: 1%;
+    }
+    .details{
+        margin-top:0.5rem;
+        height:100vh;
+        width:70vw;
+         grid-template-columns: 10rem auto;
+    }
+    .main img{
+        width: 150px;
+    }
+    .bttnn{
+        width: 100px;
+    }
+  }
