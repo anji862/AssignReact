@@ -7,16 +7,11 @@ const Cards=({show})=>{
     return( <>
                 <div className="cardinner">
                 <img src={show.image.original} alt="1" />
-                <header>
+                <span>
                 <h2>{show.name}</h2>
-                <h2 className="price" style={{marginRight:5}}>rating:{show.rating.average}</h2>
-                </header>
-                <h5>{show.type}</h5>
-                <button className="btn" ><Link to={{
-    pathname: "/screen2",
-    state: show 
-  }}
-> Details</Link></button>
+                 </span>
+                <h4 className="rating" style={{marginRight:5}}>Rating-{show.rating.average}/10</h4>
+                <Link className="bttnn" to={{ pathname: "/screen2",state: show  }}> Details</Link>
                  </div>   
             </>
     )

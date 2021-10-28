@@ -4,17 +4,25 @@ import './form.css'
 const Form = (props) => {
   const name=props.location.state
   const [formData, setFormData] = useState({
-    movieName:"",
-    username: "",
+    movieName: "",
+    showDate: "",
+    quantity:"",
+    emailid: "",
+    contact:"",
     address: ""
   })
-  const [username, setUser] = useState("")
-
+  const [email, setEmail] = useState("")
+  const [showDate, setShowDate] = useState("")
+  const [tel, setTel] = useState("")
+  const [qty,setQty] = useState("")
   const [address, setAddress] = useState("")
   const handleSubmit = (e) => {
     e.preventDefault()
-    setFormData({movieName:name,username:username,address:address})
-    setUser("");
+    setFormData({movieName:name,showDate:showDate,quantity:qty,emailid:email,contact:tel,address:address})
+    setEmail("");
+    setShowDate("");
+    setTel("");
+    setQty("");
     setAddress("")
     console.log(formData);
 }
@@ -24,23 +32,43 @@ useEffect(() => {
   localStorage.setItem("data", json);
 }, [formData]);
   return (
-    <div className="FormContainer">
-    <div className="FormBox">
-    <form className="UserForm" onSubmit={handleSubmit}>
-      <h1 style={{textAlign:"center",fontSize:"40px"}}> Our Form </h1>
-      <div className="FillForm">
-      <input  value={name} type="text" name="title" id="title" />
-      </div><br/><br/>
-      <div className="FillForm">
-      <input onChange={(e)=>setUser(e.target.value)} value={username} placeholder="Username" type="text" name="username" id="username" />
-      </div><br/><br/>
-      <div className="FillForm">
-      <input onChange={(e)=>setAddress(e.target.value)} value={address} placeholder="Address" type="text" name="address" id="address" />
-      </div><br/><br/>
-      <input type="submit" value="Submit" className="subBtn" />
-    </form>
+    <div id="booking" class="section">
+    <div class="section-center">
+        <div class="container">
+            <div class="row">
+                <div class="booking-form">
+                    <div class="form-header">
+                        <h1>Book Tickets</h1>
+                    </div>
+                <form onSubmit={handleSubmit}>
+                <div class="form-group"> <input class="form-control" type="text" value={name} /></div>
+                        <div class="row">
+                            <div class="col-md-6">
+                    <div class="form-group"> <input onChange={(e) => setShowDate(e.target.value)} class="form-control" value={showDate} type="date" required/> <span class="form-label">Show Date</span> </div>
+                  </div>
+                  <div class="form-group"> <select onChange={(e) => setQty(e.target.value)} class="form-control" id="select" required>
+                                        <option value="" selected hidden>Quantity</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                </select><span class="select-arrow"></span></div>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <div class="col-4">
+                    <div class="form-group"> <input onChange={(e)=>setEmail(e.target.value)} class="form-control" value={email}  type="email" placeholder="Enter your Email"/></div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group"> <input onChange={(e)=>setTel(e.target.value)} class="form-control" value={tel} name="tel" type="tel" placeholder="Enter you Phone"/></div>
+                            </div>
+                      </div>
+                <div class="form-group"> <input onChange={(e)=>setAddress(e.target.value)}class="form-control" value={address} type="text" placeholder="Address"/> <span class="form-label">Address</span> </div>
+                        <div class="form-btn"> <button class="submit-btn" onClick={handleSubmit}>Book Now</button> </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    </div>
+</div>
   )
 }
 

@@ -1,5 +1,5 @@
 import Details from './Component/screen2';
-import Movie from './Component/screen1';
+import Movie from './Component/Home';
 import Form from './Component/form';
 import {BrowserRouter as Router,Route} from "react-router-dom";
 import './App.css';
